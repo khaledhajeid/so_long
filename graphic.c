@@ -1,8 +1,4 @@
-#include <mlx.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include "get_next_line.h"
-#include "libft.h"
+#include "so_long.h"
 
 typedef struct s_game
 {
@@ -85,7 +81,7 @@ int get_length(t_game *game, int i)
     return (j);
 }
 
-int check_rectangle(t_game *game)
+int check_rectangle(t_game *game) //done
 {
     int i;
     int length_of_line;
@@ -102,7 +98,7 @@ int check_rectangle(t_game *game)
 
 }
 
-int surrounded_by_walls(t_game *game)
+int surrounded_by_walls(t_game *game) //done
 {
     int i;
     int last_line;
@@ -151,7 +147,7 @@ int num_char_in_map(char **map, char c)
     }
     return (count);
 }
-int check_exit_start_collectible(t_game *game)
+int check_exit_start_collectible(t_game *game) //done
 {
     int y;
     int x;
@@ -176,7 +172,7 @@ int check_exit_start_collectible(t_game *game)
     }
     return (0);
 }
-void print_message(int num_of_error)
+void print_message(int num_of_error) //done
 {
     if (num_of_error == 1)
         printf("Erorr\nThere is no Player in the map or more than 1 player");
@@ -188,7 +184,7 @@ void print_message(int num_of_error)
         printf("Erorr\nThere is an undefined character");
 }
 
-int flood_fill(char **map, int playery, int playerx)
+int flood_fill(char **map, int playery, int playerx) //done
 {
     map[playery][playerx] = '1';
     if (map[playery + 1][playerx] != '1')
@@ -202,7 +198,7 @@ int flood_fill(char **map, int playery, int playerx)
     return (num_char_in_map(map, 'C') == 0 && num_char_in_map(map, 'E') == 0);
 }
 
-int check_validation_exit_coll_path(t_game *game, int playery, int playerx)
+int check_validation_exit_coll_path(t_game *game) //done
 {
     t_game copy;
     copy.name_map_file = game->name_map_file;
@@ -215,7 +211,7 @@ int check_validation_exit_coll_path(t_game *game, int playery, int playerx)
     return (1);
 }
 
-int check_validation(t_game *game)
+int check_validation(t_game *game) //done
 {
     int count;
 
@@ -236,13 +232,14 @@ int check_validation(t_game *game)
         print_message(count);
         return (0);
     }
-    if (!check_validation_exit_coll_path(game, game->y_player, game->x_player))
+    if (!check_validation_exit_coll_path(game))
         return (0);
     return (1);
 }
 
 int handle_x_button(void *game)
 {
+    (void) game;
     exit(0);
     return(0);
 }
@@ -317,7 +314,7 @@ void find_player_position(t_game *game)
         y++;
     }
 }
-void take_coin(int keycode, t_game *game)
+void take_coin(t_game *game)
 {
     if (game->map[game->y_player][game->x_player] == 'C')
     {
@@ -386,14 +383,14 @@ int handle_press(int keycode, void *param)
     if (game->move == 1)
         printf("Number of move: %d\n", game->num_move);
     game->move = 0;
-    take_coin(keycode, game);
+    take_coin(game);
     win_game(game);
     render(game);
     player_render(game, keycode);
     return (0);
 }
 
-int validation_map_path(t_game game)
+int validation_map_path(t_game game) //done
 {
     int len;
     char path[4];
@@ -440,14 +437,14 @@ int main (int argc, char **argv)
     mlx_hook(game.win, 2, 1L<<0, handle_press, &game);
     mlx_hook(game.win, 17, 0, handle_x_button, &game);
 
-    game.player[0] = mlx_xpm_file_to_image(game.mlx, "player_up.xpm", &game.width, &game.height);
-    game.player[1] = mlx_xpm_file_to_image(game.mlx, "player_down.xpm", &game.width, &game.height);
-    game.player[2] = mlx_xpm_file_to_image(game.mlx, "player_left.xpm", &game.width, &game.height);
-    game.player[3] = mlx_xpm_file_to_image(game.mlx, "player_right.xpm", &game.width, &game.height);
-    game.wall = mlx_xpm_file_to_image(game.mlx, "wall.xpm", &game.width, &game.height);
-    game.floor = mlx_xpm_file_to_image(game.mlx, "floor.xpm", &game.width, &game.height);
-    game.coin = mlx_xpm_file_to_image(game.mlx, "coin.xpm", &game.width, &game.height);
-    game.exit = mlx_xpm_file_to_image(game.mlx, "exit.xpm", &game.width, &game.height);
+    game.player[0] = mlx_xpm_file_to_image(game.mlx, "texture/player_up.xpm", &game.width, &game.height);
+    game.player[1] = mlx_xpm_file_to_image(game.mlx, "texture/player_down.xpm", &game.width, &game.height);
+    game.player[2] = mlx_xpm_file_to_image(game.mlx, "texture/player_left.xpm", &game.width, &game.height);
+    game.player[3] = mlx_xpm_file_to_image(game.mlx, "texture/player_right.xpm", &game.width, &game.height);
+    game.wall = mlx_xpm_file_to_image(game.mlx, "texture/wall.xpm", &game.width, &game.height);
+    game.floor = mlx_xpm_file_to_image(game.mlx, "texture/floor.xpm", &game.width, &game.height);
+    game.coin = mlx_xpm_file_to_image(game.mlx, "texture/coin.xpm", &game.width, &game.height);
+    game.exit = mlx_xpm_file_to_image(game.mlx, "texture/exit.xpm", &game.width, &game.height);
     render(&game);
     mlx_loop(game.mlx);
 }
