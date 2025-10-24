@@ -17,7 +17,7 @@ NAME = so_long
 NAME_SO_LONG_LIB = libsolong.a
 LIBFT_DIR = libft
 GET_NEXT_LINE_DIR = get_next_line
-SRC = graphic.c \
+SRC = so_long.c \
 		handle_press_movement.c \
 		read_texture.c \
 		rendering.c \
