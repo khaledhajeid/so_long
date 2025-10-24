@@ -6,7 +6,7 @@
 #    By: kal-haj- <kal-haj-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/21 15:37:15 by kal-haj-          #+#    #+#              #
-#    Updated: 2025/10/21 16:31:47 by kal-haj-         ###   ########.fr        #
+#    Updated: 2025/10/24 22:09:25 by kal-haj-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,13 @@ NAME = so_long
 NAME_SO_LONG_LIB = libsolong.a
 LIBFT_DIR = libft
 GET_NEXT_LINE_DIR = get_next_line
-SRC = graphic.c
+SRC = graphic.c \
+		handle_press_movement.c \
+		read_texture.c \
+		rendering.c \
+		utils.c \
+		validation_of_map.c \
+		validation.c
 	
 NAMELIB = $(LIBFT_DIR)/libft.a
 NAME_GET_NEXT_LINE_LIB = $(GET_NEXT_LINE_DIR)/libgetnextline.a
