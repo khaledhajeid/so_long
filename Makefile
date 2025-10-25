@@ -6,7 +6,7 @@
 #    By: kal-haj- <kal-haj-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/21 15:37:15 by kal-haj-          #+#    #+#              #
-#    Updated: 2025/10/24 22:09:25 by kal-haj-         ###   ########.fr        #
+#    Updated: 2025/10/25 17:18:28 by kal-haj-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC = so_long.c \
 		rendering.c \
 		utils.c \
 		validation_of_map.c \
-		validation.c
+		validation.c \
+		free.c
 	
 NAMELIB = $(LIBFT_DIR)/libft.a
 NAME_GET_NEXT_LINE_LIB = $(GET_NEXT_LINE_DIR)/libgetnextline.a

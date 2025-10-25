@@ -1,47 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_printf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kal-haj- <kal-haj-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 21:54:54 by kal-haj-          #+#    #+#             */
-/*   Updated: 2025/10/25 18:14:33 by kal-haj-         ###   ########.fr       */
+/*   Created: 2025/08/19 21:11:37 by kal-haj-          #+#    #+#             */
+/*   Updated: 2025/08/20 18:21:30 by kal-haj-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+static int	length(int n)
 {
-	char	*result;
-	int		i;
-	int		j;
+	int	len;
 
-	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	i = ft_strlen(s1) + ft_strlen(s2);
-	result = malloc((i + 1) * sizeof(char));
-	i = 0;
-	if (!result)
-		return (NULL);
-	while (s1[i])
+	if (n <= 0)
+		len = 1;
+	else
+		len = 0;
+	while (n)
 	{
-		result[i] = s1[i];
-		i++;
+		n = n / 10;
+		len++;
 	}
-	while (s2[j])
-	{
-		result[i + j] = s2[j];
-		j++;
-	}
-	result[i + j] = '\0';
-	return (result);
+	return (len);
 }
-/*
-int main()
+
+int	ft_putnbr_printf(int n)
 {
-	printf("%s\n", ft_strjoin(NULL, "dolor sit amet"));
+	char	x;
+	int		num;
+
+	num = length(n);
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return (11);
+	}
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -n;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_printf(n / 10);
+	}
+	x = (n % 10) + '0';
+	write(1, &x, 1);
+	return (num);
 }
-*/

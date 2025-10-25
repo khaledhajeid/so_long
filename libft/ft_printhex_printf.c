@@ -1,47 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_printhex_printf.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kal-haj- <kal-haj-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 21:54:54 by kal-haj-          #+#    #+#             */
-/*   Updated: 2025/10/25 18:14:33 by kal-haj-         ###   ########.fr       */
+/*   Created: 2025/08/19 21:11:49 by kal-haj-          #+#    #+#             */
+/*   Updated: 2025/08/21 18:18:04 by kal-haj-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+static unsigned int	length(unsigned long n)
 {
-	char	*result;
-	int		i;
-	int		j;
+	int	len;
 
-	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	i = ft_strlen(s1) + ft_strlen(s2);
-	result = malloc((i + 1) * sizeof(char));
-	i = 0;
-	if (!result)
-		return (NULL);
-	while (s1[i])
+	len = 0;
+	if (n == 0)
+		len = 1;
+	while (n)
 	{
-		result[i] = s1[i];
-		i++;
+		n = n / 16;
+		len++;
 	}
-	while (s2[j])
-	{
-		result[i + j] = s2[j];
-		j++;
-	}
-	result[i + j] = '\0';
-	return (result);
+	return (len);
 }
-/*
-int main()
+
+int	ft_puthex_printf(unsigned long n, int uppercase)
 {
-	printf("%s\n", ft_strjoin(NULL, "dolor sit amet"));
+	char	*base;
+	int		len;
+
+	len = length(n);
+	if (uppercase)
+		base = "0123456789ABCDEF";
+	else
+		base = "0123456789abcdef";
+	if (n >= 16)
+		ft_puthex_printf(n / 16, uppercase);
+	ft_putchar_printf(base[n % 16]);
+	return (len);
 }
-*/

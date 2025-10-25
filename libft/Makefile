@@ -46,7 +46,14 @@ SRC	= ft_memset.c \
 		ft_putnbr_fd.c \
 		ft_putendl_fd.c \
 		ft_strtrim.c \
-		ft_split.c
+		ft_split.c \
+		ft_printf.c \
+		ft_printhex_printf.c \
+		ft_putchar_printf.c \
+		ft_putnbr_printf.c \
+		ft_putnbr_unsigned_printf.c \
+		ft_putptr_printf.c \
+		ft_putstr_printf.c
 
 OBJ	= $(SRC:.c=.o)
 

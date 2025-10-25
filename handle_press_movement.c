@@ -6,7 +6,7 @@
 /*   By: kal-haj- <kal-haj-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 19:14:14 by kal-haj-          #+#    #+#             */
-/*   Updated: 2025/10/24 19:53:33 by kal-haj-         ###   ########.fr       */
+/*   Updated: 2025/10/25 18:08:15 by kal-haj-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int handle_x_button(void *game)
 {
     (void) game;
+    free_everything(game);
     exit(0);
     return(0);
 }
@@ -47,7 +48,10 @@ void take_coin(t_game *game)
 void win_game(t_game *game)
 {
     if (game->map[game->player.y_player][game->player.x_player] == 'E' && game->num_of_coin == 0)
+    {
+        free_everything(game);
         exit(0);
+    }
 }
 
 void handle_movement(int keycode, t_game *game)
@@ -83,10 +87,13 @@ int handle_press(int keycode, void *param)
 
     game  = (t_game *)param;
     if (keycode == 0xff1b)
+    {
+        free_everything(game);
         exit(0);
+    }
     handle_movement(keycode, game);
     if (game->player.move == 1)
-        printf("Number of move: %d\n", game->player.num_move);
+        ft_printf("Number of move: %d\n", game->player.num_move);
     game->player.move = 0;
     take_coin(game);
     win_game(game);

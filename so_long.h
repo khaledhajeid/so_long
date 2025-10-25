@@ -6,7 +6,7 @@
 /*   By: kal-haj- <kal-haj-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 15:31:05 by kal-haj-          #+#    #+#             */
-/*   Updated: 2025/10/24 19:51:59 by kal-haj-         ###   ########.fr       */
+/*   Updated: 2025/10/25 17:18:09 by kal-haj-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,9 @@ void take_coin(t_game *game);
 void win_game(t_game *game);
 void handle_movement(int keycode, t_game *game);
 int handle_press(int keycode, void *param);
+void	free_map(char **arr);
+void free_everything(t_game *game);
+
 
 
 

@@ -6,7 +6,7 @@
 /*   By: kal-haj- <kal-haj-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 19:20:37 by kal-haj-          #+#    #+#             */
-/*   Updated: 2025/10/24 19:22:24 by kal-haj-         ###   ########.fr       */
+/*   Updated: 2025/10/25 17:55:59 by kal-haj-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int    fill_map(int num_line, t_game *game)
         game->map[i] = get_next_line(fd);
         if (game->map[i] == NULL)
         {
+            free_map(game->map); 
             close(fd);
             return (0);
         }
