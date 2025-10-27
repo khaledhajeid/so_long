@@ -56,11 +56,6 @@ char	*ft_get_line(char *result)
 		line[i] = result[i];
 		i++;
 	}
-	//if (result[i] == '\n')
-	//{
-	//	line[i] = '\n';
-	//	i++;
-	//}
 	line[i] = '\0';
 	return (line);
 }
@@ -105,4 +100,3 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
-
