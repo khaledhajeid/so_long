@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_press_movement.c                            :+:      :+:    :+:   */
+/*   handle_movement_event.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kal-haj- <kal-haj-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 19:14:14 by kal-haj-          #+#    #+#             */
-/*   Updated: 2025/10/26 18:57:03 by kal-haj-         ###   ########.fr       */
+/*   Updated: 2025/10/28 16:41:34 by kal-haj-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	handle_x_button(void *game)
-{
-	(void) game;
-	free_everything(game);
-	exit(0);
-	return (0);
-}
 
 void	take_coin(t_game *game)
 {
@@ -70,7 +62,13 @@ void	handle_movement(int keycode, t_game *game)
 		game->player.num_move++;
 		game->player.move = 1;
 	}
-	else if (keycode == 0x64
+	else
+		handle_movement_left_right(keycode, game);
+}
+
+void	handle_movement_left_right(int keycode, t_game *game)
+{
+	if (keycode == 0x64
 		&& game->map[game->player.y_player][game->player.x_player + 1] != '1')
 	{
 		game->player.x_player += 1;
@@ -84,25 +82,4 @@ void	handle_movement(int keycode, t_game *game)
 		game->player.num_move++;
 		game->player.move = 1;
 	}
-}
-
-int	handle_press(int keycode, void *param)
-{
-	t_game	*game;
-
-	game = (t_game *)param;
-	if (keycode == 0xff1b)
-	{
-		free_everything(game);
-		exit(0);
-	}
-	handle_movement(keycode, game);
-	if (game->player.move == 1)
-		ft_printf("Number of move: %d\n", game->player.num_move);
-	game->player.move = 0;
-	take_coin(game);
-	win_game(game);
-	render(game);
-	player_render(game, keycode);
-	return (0);
 }

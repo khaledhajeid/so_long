@@ -76,20 +76,7 @@ void	render(t_game *game)
 		x = 0;
 		while (game->map[y][x])
 		{
-			mlx_put_image_to_window(game->window.mlx,
-				game->window.win, game->texture.floor, x * 64, y * 64);
-			if (game->map[y][x] == '1')
-				mlx_put_image_to_window(game->window.mlx,
-					game->window.win, game->texture.wall, x * 64, y * 64);
-			if (game->map[y][x] == 'C')
-			{
-				mlx_put_image_to_window(game->window.mlx,
-					game->window.win, game->texture.coin, x * 64, y * 64);
-				game->num_of_coin++;
-			}
-			if (game->map[y][x] == 'E')
-				mlx_put_image_to_window(game->window.mlx,
-					game->window.win, game->texture.exit, x * 64, y * 64);
+			render_texture(game, x, y);
 			x++;
 		}
 		y++;
@@ -97,4 +84,22 @@ void	render(t_game *game)
 	mlx_put_image_to_window(game->window.mlx, game->window.win,
 		game->texture.player[3],
 		game->player.x_player * 64, game->player.y_player * 64);
+}
+
+void	render_texture(t_game *game, int x, int y)
+{
+	mlx_put_image_to_window(game->window.mlx,
+		game->window.win, game->texture.floor, x * 64, y * 64);
+	if (game->map[y][x] == '1')
+		mlx_put_image_to_window(game->window.mlx,
+			game->window.win, game->texture.wall, x * 64, y * 64);
+	if (game->map[y][x] == 'C')
+	{
+		mlx_put_image_to_window(game->window.mlx,
+			game->window.win, game->texture.coin, x * 64, y * 64);
+		game->num_of_coin++;
+	}
+	if (game->map[y][x] == 'E')
+		mlx_put_image_to_window(game->window.mlx,
+			game->window.win, game->texture.exit, x * 64, y * 64);
 }

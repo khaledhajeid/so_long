@@ -14,18 +14,7 @@
 
 void	read_texture(t_game *game)
 {
-	game->texture.player[0] = mlx_xpm_file_to_image(game->window.mlx,
-			"texture/player_up.xpm",
-			&game->texture.width, &game->texture.height);
-	game->texture.player[1] = mlx_xpm_file_to_image(game->window.mlx,
-			"texture/player_down.xpm",
-			&game->texture.width, &game->texture.height);
-	game->texture.player[2] = mlx_xpm_file_to_image(game->window.mlx,
-			"texture/player_left.xpm",
-			&game->texture.width, &game->texture.height);
-	game->texture.player[3] = mlx_xpm_file_to_image(game->window.mlx,
-			"texture/player_right.xpm",
-			&game->texture.width, &game->texture.height);
+	read_texture_player(game);
 	game->texture.wall = mlx_xpm_file_to_image(game->window.mlx,
 			"texture/wall.xpm",
 			&game->texture.width, &game->texture.height);
@@ -46,4 +35,20 @@ void	read_texture(t_game *game)
 		free_everything(game);
 		exit(0);
 	}
+}
+
+void	read_texture_player(t_game *game)
+{
+	game->texture.player[0] = mlx_xpm_file_to_image(game->window.mlx,
+			"texture/player_up.xpm",
+			&game->texture.width, &game->texture.height);
+	game->texture.player[1] = mlx_xpm_file_to_image(game->window.mlx,
+			"texture/player_down.xpm",
+			&game->texture.width, &game->texture.height);
+	game->texture.player[2] = mlx_xpm_file_to_image(game->window.mlx,
+			"texture/player_left.xpm",
+			&game->texture.width, &game->texture.height);
+	game->texture.player[3] = mlx_xpm_file_to_image(game->window.mlx,
+			"texture/player_right.xpm",
+			&game->texture.width, &game->texture.height);
 }

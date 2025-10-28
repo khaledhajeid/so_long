@@ -6,7 +6,7 @@
 /*   By: kal-haj- <kal-haj-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 15:31:05 by kal-haj-          #+#    #+#             */
-/*   Updated: 2025/10/25 17:18:09 by kal-haj-         ###   ########.fr       */
+/*   Updated: 2025/10/28 16:57:40 by kal-haj-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,11 @@ int		handle_x_button(void *game);
 void	take_coin(t_game *game);
 void	win_game(t_game *game);
 void	handle_movement(int keycode, t_game *game);
+void	handle_movement_left_right(int keycode, t_game *game);
 int		handle_press(int keycode, void *param);
 void	free_map(char **arr);
 void	free_everything(t_game *game);
+void	render_texture(t_game *game, int x, int y);
+void	read_texture_player(t_game *game);
+
 #endif
