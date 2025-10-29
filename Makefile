@@ -17,7 +17,7 @@ NAME = so_long
 NAME_SO_LONG_LIB = libsolong.a
 LIBFT_DIR = libft
 GET_NEXT_LINE_DIR = get_next_line
-MINILIBX_DIR = minilibx-linux
+MINILIBX_DIR = minilibx
 SRC = so_long.c \
 		handle_movement_event.c \
 		read_texture.c \
@@ -37,7 +37,7 @@ all: $(NAME_SO_LONG_LIB)
 
 $(NAME_SO_LONG_LIB): $(NAMELIB) $(NAME_GET_NEXT_LINE_LIB) $(MINILIBX) $(OBJ)
 	ar rcs $(NAME_SO_LONG_LIB) $(OBJ)
-	$(CC) $(NAME_SO_LONG_LIB) $(NAME_GET_NEXT_LINE_LIB) $(NAMELIB) -Lminilibx-linux $(MLXFLAGS) -o $(NAME)
+	$(CC) $(NAME_SO_LONG_LIB) $(NAME_GET_NEXT_LINE_LIB) $(NAMELIB) -Lminilibx $(MLXFLAGS) -o $(NAME)
 
 $(NAMELIB):
 	$(MAKE) -C $(LIBFT_DIR)
