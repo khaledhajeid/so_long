@@ -17,6 +17,7 @@ NAME = so_long
 NAME_SO_LONG_LIB = libsolong.a
 LIBFT_DIR = libft
 GET_NEXT_LINE_DIR = get_next_line
+MINILIBX_DIR = minilibx-linux
 SRC = so_long.c \
 		handle_movement_event.c \
 		read_texture.c \
@@ -29,23 +30,28 @@ SRC = so_long.c \
 	
 NAMELIB = $(LIBFT_DIR)/libft.a
 NAME_GET_NEXT_LINE_LIB = $(GET_NEXT_LINE_DIR)/libgetnextline.a
+MINILIBX = $(MINILIBX_DIR)/libmlx.a
 OBJ	= $(SRC:.c=.o)
 
 all: $(NAME_SO_LONG_LIB)
 
-$(NAME_SO_LONG_LIB): $(NAMELIB) $(NAME_GET_NEXT_LINE_LIB) $(OBJ)
+$(NAME_SO_LONG_LIB): $(NAMELIB) $(NAME_GET_NEXT_LINE_LIB) $(MINILIBX) $(OBJ)
 	ar rcs $(NAME_SO_LONG_LIB) $(OBJ)
-	$(CC) $(NAME_SO_LONG_LIB) $(NAME_GET_NEXT_LINE_LIB) $(NAMELIB) $(MLXFLAGS) -o $(NAME)
+	$(CC) $(NAME_SO_LONG_LIB) $(NAME_GET_NEXT_LINE_LIB) $(NAMELIB) -Lminilibx-linux $(MLXFLAGS) -o $(NAME)
 
 $(NAMELIB):
 	$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME_GET_NEXT_LINE_LIB):
 	$(MAKE) -C $(GET_NEXT_LINE_DIR)
+	
+$(MINILIBX):
+	$(MAKE) -C $(MINILIBX_DIR)
 
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
 	$(MAKE) -C $(GET_NEXT_LINE_DIR) clean
+	$(MAKE) -C $(MINILIBX_DIR) clean
 	rm -f $(OBJ)
 
 fclean: clean
