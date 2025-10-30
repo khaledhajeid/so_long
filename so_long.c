@@ -6,7 +6,7 @@
 /*   By: kal-haj- <kal-haj-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 19:07:31 by kal-haj-          #+#    #+#             */
-/*   Updated: 2025/10/28 17:19:49 by kal-haj-         ###   ########.fr       */
+/*   Updated: 2025/10/30 16:12:19 by kal-haj-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
+	ft_memset(&game, 0, sizeof(t_game));
 	if (argc != 2)
 		return (0);
 	game.name_map_file = argv[1];
