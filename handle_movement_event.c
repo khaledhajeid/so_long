@@ -19,21 +19,6 @@ void	take_coin(t_game *game)
 		game->map[game->player.y_player][game->player.x_player] = '0';
 		game->num_of_coin--;
 	}
-	else if (game->map[game->player.y_player][game->player.x_player] == 'C')
-	{
-		game->map[game->player.y_player][game->player.x_player] = '0';
-		game->num_of_coin--;
-	}
-	else if (game->map[game->player.y_player][game->player.x_player] == 'C')
-	{
-		game->map[game->player.y_player][game->player.x_player] = '0';
-		game->num_of_coin--;
-	}
-	else if (game->map[game->player.y_player][game->player.x_player] == 'C')
-	{
-		game->map[game->player.y_player][game->player.x_player] = '0';
-		game->num_of_coin--;
-	}
 }
 
 void	win_game(t_game *game)
