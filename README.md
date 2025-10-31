@@ -13,14 +13,14 @@ The project features full map validation, memory safety, event handling, and tex
 ---
 
 ## 📌 Table of Contents
-- [Project Structure](#project-structure)
-- [Map Rules](#map-rules)
-- [Gameplay](#gameplay)
-- [Rendering](#rendering)
-- [How to Compile](#how-to-compile)
-- [Status & Implemented Features](#status--implemented-features)
-- [Future Improvements](#future-improvements)
-- [Author](#author)
+- [📂 Project Structure](#project-structure)
+- [🗺️ Map Rules](#map-rules)
+- [🎮 Gameplay](#gameplay)
+- [🖥️ Rendering](#rendering)
+- [⚙️ How to Compile](#how-to-compile)
+- [✅ Status & Implemented Features](#status--implemented-features)
+- [🚀 Future Improvements](#future-improvements)
+- [👨‍💻 Author](#author)
 
 ---
 
