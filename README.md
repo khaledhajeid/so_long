@@ -24,7 +24,7 @@ The project features full map validation, memory safety, event handling, and tex
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 | Path / File | Description |
 |------------|-------------|
@@ -45,7 +45,7 @@ The project features full map validation, memory safety, event handling, and tex
 
 ---
 
-## 🗺️ Map Rules
+## Map Rules
 
 Maps must use `.ber` extension.  
 Valid map characters:
@@ -68,7 +68,7 @@ Valid map characters:
 
 ---
 
-## 🎮 Gameplay
+## Gameplay
 
 | Key | Action |
 |-----|--------|
@@ -82,7 +82,7 @@ Valid map characters:
 
 ---
 
-## 🖥️ Rendering
+## Rendering
 
 - Each map tile is rendered as a **64×64** texture
 - Map re-renders on every movement
@@ -90,7 +90,7 @@ Valid map characters:
 
 ---
 
-## ⚙️ How to Compile
+## How to Compile
 
 Note: you must install this before Compile the game:
 ```bash
@@ -118,7 +118,7 @@ make re
 ```
 ---
 
-## ✅ Status & Implemented Features
+## Status & Implemented Features
 
 - ✅ Norm-compliant
 - ✅ No memory leaks
@@ -129,14 +129,14 @@ make re
 
 ---
   
-## 🚀 Future Improvements
+## Future Improvements
 
 - Enemy system (game over on collision)
 - Animations for player or collectibles
 - Move count displayed inside window
 - Improved textures / sprites
 
-## 👨‍💻 Author
+## Author
 
 Khaled Alhaj Eid
 42 Amman
