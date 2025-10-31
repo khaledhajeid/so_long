@@ -18,7 +18,7 @@ The project features full map validation, memory safety, event handling, and tex
 - [🎮 Gameplay](#gameplay)
 - [🖥️ Rendering](#rendering)
 - [⚙️ How to Compile](#how-to-compile)
-- [✅ Status & Implemented Features](#status--implemented-features)
+- [✅ Status and Implemented Features](#status--implemented-features)
 - [🚀 Future Improvements](#future-improvements)
 - [👨‍💻 Author](#author)
 
@@ -116,6 +116,8 @@ Recompile everything:
 ```bash
 make re
 ```
+---
+
 ## ✅ Status & Implemented Features
 
 - ✅ Norm-compliant
@@ -125,6 +127,8 @@ make re
 - ✅ Multiple map support
 - ✅ Proper event handling
 
+---
+  
 ## 🚀 Future Improvements
 
 - Enemy system (game over on collision)
